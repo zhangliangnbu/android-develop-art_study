@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.tech.heathcilff.androiddevelopart.ThirdActivity">
+
+    <TextView
+        android:id="@+id/tv_third"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="to fourth"/>
+
+    <Button
+        android:id="@+id/btn_toSecond"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="to second"
+        app:layout_constraintTop_toBottomOf="@id/tv_third"/>
+
+    <Button
+        android:id="@+id/btn_toThird"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="to third"
+        app:layout_constraintTop_toBottomOf="@id/btn_toSecond"
+        />
+
+    <Button
+        android:id="@+id/btn_toFourth"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="to fourth"
+        app:layout_constraintTop_toBottomOf="@id/btn_toThird"
+        />
+
+</android.support.constraint.ConstraintLayout>

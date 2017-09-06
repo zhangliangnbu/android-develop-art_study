@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <android.support.constraint.ConstraintLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.tech.heathcilff.androiddevelopart.MainActivity">
+
+        <EditText
+            android:id="@+id/et_some"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="input something"/>
+
+        <TextView
+            android:id="@+id/tv_toSecond"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hello World!"
+            app:layout_constraintTop_toBottomOf="@id/et_some"/>
+
+        <Button
+            android:id="@+id/btn_toSecond"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="to second by implicit"
+            app:layout_constraintTop_toBottomOf="@id/tv_toSecond"/>
+
+        <Button
+            android:id="@+id/btn_toThird"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="to third"
+            app:layout_constraintTop_toBottomOf="@id/btn_toSecond"
+            />
+
+        <Button
+            android:id="@+id/btn_toFourth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="to fourth"
+            app:layout_constraintTop_toBottomOf="@id/btn_toThird"
+            />
+
+        <Button
+            android:id="@+id/btn_toFifth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="to fifth_ipc"
+            app:layout_constraintTop_toBottomOf="@id/btn_toFourth"
+            />
+
+        <Button
+            android:id="@+id/btn_toSixth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="to sixth_ipc"
+            app:layout_constraintTop_toBottomOf="@id/btn_toFifth"
+            />
+
+        <Button
+            android:id="@+id/btn_toServer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="to aidl_ipc"
+            app:layout_constraintTop_toBottomOf="@id/btn_toSixth"
+            />
+
+        <Button
+            android:id="@+id/btn_toMessengerActivity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="toMessengerActivity"
+            app:layout_constraintTop_toBottomOf="@id/btn_toServer"
+            />
+
+        <Button
+            android:id="@+id/btn_toBookProviderPage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="toBookProviderPage"
+            app:layout_constraintTop_toBottomOf="@id/btn_toMessengerActivity"
+            />
+
+        <Button
+            android:id="@+id/btn_toTCPClientPage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="to_tcp_client"
+            app:layout_constraintTop_toBottomOf="@id/btn_toBookProviderPage"
+            />
+
+        <Button
+            android:id="@+id/btn_toViewPage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="to_view_page"
+            app:layout_constraintTop_toBottomOf="@id/btn_toTCPClientPage"
+            />
+
+
+
+
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest package="com.tech.heathcilff.androiddevelopart"
+          xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <application
+        android:name=".MyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".MainActivity"
+            android:configChanges="orientation|screenSize|fontScale"
+            android:label="first standard mode">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".SecondActivity"
+            android:label="second singleTop"
+            android:launchMode="singleTop">
+            <intent-filter>
+                <action android:name="com.tech.heathcilff.androiddevelopart.action.second"/>
+                <!-- <action android:name="android.intent.action.SEND"/> -->
+                <!-- <action android:name="androiddevelopart.action.second_1"/> -->
+                <category android:name="com.tech.heathcilff.androiddevelopart.catogory.second"/>
+                <!-- <category android:name="androiddevelopart.catogory.second_1"/> -->
+                <category android:name="android.intent.category.DEFAULT"/>
+
+                <data android:mimeType="text/plain"/>
+                <!-- <data android:mimeType="*/*" android:scheme="http"/> -->
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ThirdActivity"
+            android:label="third singleTask"
+            android:launchMode="singleTask">
+        </activity>
+        <activity
+            android:name=".FourthActivity"
+            android:label="fourth standard"
+            android:launchMode="standard">
+        </activity>
+        <activity
+            android:name=".FifthIPCActivity"
+            android:process=":remote_fifth">
+        </activity>
+        <activity
+            android:name=".SixthIPCActivity"
+            android:process="com.tech.heathcilff.androiddevelopart.remote_sixth">
+        </activity>
+
+        <service
+            android:name=".aidl.BookManagerService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":remote_aidl">
+        </service>
+
+        <activity android:name=".aidl.BookManagerActivity">
+        </activity>
+
+        <service
+            android:name=".messenger.MessengerService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":remote_messenger">
+        </service>
+
+        <activity android:name=".messenger.MessengerActivity">
+        </activity>
+
+        <provider
+            android:name=".provider.BookContentProvider"
+            android:authorities="com.tech.heathcliff.androiddevelopart.book_provider"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":book_provider">
+        </provider>
+
+        <activity android:name=".provider.BookProviderActivity">
+        </activity>
+
+        <service
+            android:name=".socket.TCPServerService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":remote_tcp_server">
+        </service>
+
+        <activity android:name=".socket.TCPClientActivity">
+        </activity>
+        <activity android:name=".view.ViewTestActivity">
+        </activity>
+        <activity android:name=".view.ViewDrawActivity">
+        </activity>
+        <activity android:name=".view.sameDirectionTouch.SameDirectionTouchActivity">
+        </activity>
+        <activity android:name=".view.sameDirectionTouch.SameDirectionTouchActivity2">
+        </activity>
+    </application>
+
+</manifest>

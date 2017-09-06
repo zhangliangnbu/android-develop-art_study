@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.tech.heathcilff.androiddevelopart.view.ViewTestActivity">
+
+    <com.tech.heathcilff.androiddevelopart.view.TestViewGroup
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#999999">
+
+        <com.tech.heathcilff.androiddevelopart.view.TestViewGroup2
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="#ff0000">
+
+            <com.tech.heathcilff.androiddevelopart.view.TestTextView
+                android:id="@+id/tv_test"
+                android:text="hello world"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="#00ff00"/>
+
+        </com.tech.heathcilff.androiddevelopart.view.TestViewGroup2>
+
+    </com.tech.heathcilff.androiddevelopart.view.TestViewGroup>
+
+
+</android.support.constraint.ConstraintLayout>

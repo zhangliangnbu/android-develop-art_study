@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    tools:context="com.tech.heathcilff.androiddevelopart.view.ViewTestActivity">
+
+    <com.tech.heathcilff.androiddevelopart.view.HorizontalScrollView
+        android:id="@+id/hsv"
+        android:layout_width="300dp"
+        android:layout_height="400dp"
+        android:background="#999999"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="20dp">
+
+        <!--<TextView-->
+            <!--android:id="@+id/tv_test11"-->
+            <!--android:layout_width="100dp"-->
+            <!--android:layout_height="200dp"-->
+            <!--android:background="#00ff00"-->
+            <!--android:gravity="center"-->
+            <!--android:text="hello world"/>-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/tv_test111"-->
+            <!--android:layout_width="200dp"-->
+            <!--android:layout_height="200dp"-->
+            <!--android:background="#00ff00"-->
+            <!--android:gravity="center"-->
+            <!--android:text="hello world"/>-->
+
+        <com.tech.heathcilff.androiddevelopart.view.VerticalScrollView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:background="#0000ff">
+
+            <TextView
+                android:id="@+id/tv_test"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:gravity="center"
+                android:text="VerticalScrollView"
+                android:background="#ff0000"/>
+
+        </com.tech.heathcilff.androiddevelopart.view.VerticalScrollView>
+
+
+        <!--<Button-->
+        <!--android:id="@+id/btn_translate"-->
+        <!--android:layout_width="200dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@id/tv_test"-->
+        <!--android:text="translate"/>-->
+
+        <!--<Button-->
+        <!--android:id="@+id/btn_recovery"-->
+        <!--android:layout_width="200dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@id/btn_translate"-->
+        <!--android:text="recovery"/>-->
+
+    </com.tech.heathcilff.androiddevelopart.view.HorizontalScrollView>
+
+
+</android.support.constraint.ConstraintLayout>
