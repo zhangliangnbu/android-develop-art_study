@@ -10,6 +10,8 @@ import android.view.View;
 
 import com.tech.heathcilff.androiddevelopart.socket.TCPClientActivity;
 import com.tech.heathcilff.androiddevelopart.view.sameDirectionTouch.SameDirectionTouchActivity2;
+import com.tech.heathcilff.androiddevelopart.view.threeTouchEvent.ThreeTouchEventInActivity;
+import com.tech.heathcilff.androiddevelopart.view.threeTouchEvent.ThreeTouchEventExActivity;
 
 public class MainActivity extends Activity {
 	private static final String TAG = "MainActivity";
@@ -85,10 +87,27 @@ public class MainActivity extends Activity {
 			}
 		});
 
+		// 二重事件冲突
 		findViewById(R.id.btn_toViewPage).setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				startActivity(new Intent(getApplicationContext(), SameDirectionTouchActivity2.class));
+			}
+		});
+
+		// 三重事件冲突 内部拦截法
+		findViewById(R.id.btn_toThreeTouchEventPage).setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				startActivity(new Intent(getApplicationContext(), ThreeTouchEventInActivity.class));
+			}
+		});
+
+		// 三重事件冲突 外部拦截发(都在中间层中处理逻辑，部分外部拦截法)
+		findViewById(R.id.btn_toThreeTouchEventExPage).setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				startActivity(new Intent(getApplicationContext(), ThreeTouchEventExActivity.class));
 			}
 		});
 	}
