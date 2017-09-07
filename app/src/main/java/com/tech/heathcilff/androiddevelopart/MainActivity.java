@@ -110,6 +110,8 @@ public class MainActivity extends Activity {
 				startActivity(new Intent(getApplicationContext(), ThreeTouchEventExActivity.class));
 			}
 		});
+
+		// test
 	}
 
 	private void toSMS() {
