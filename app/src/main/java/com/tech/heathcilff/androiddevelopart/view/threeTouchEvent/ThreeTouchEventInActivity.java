@@ -38,8 +38,24 @@ public class ThreeTouchEventInActivity extends AppCompatActivity {
 //		09-07 10:06:55.861 12904-12904/com.tech.heathcilff.androiddevelopart D/middle-cancel: onInterceptTouchEvent-xy:457.0/208.0
 //		09-07 10:06:55.861 12904-12904/com.tech.heathcilff.androiddevelopart D/inner-cancel: dispatchTouchEvent-xy:457.0/208.0
 //		09-07 10:06:55.861 12904-12904/com.tech.heathcilff.androiddevelopart D/inner-cancel: onTouchEvent-xy:457.0/208.0
-//		Move事件第二次。为什么outer会执行onInterceptTouchEvent()？猜想可能因为在上次的Move事件中nner请求middle拦截事件，会导致mFirstTouchTarget为空，所有的父控件都没有目标。于是intercept直接为true，继而调用onInterceptTouchEvent()方法。
-//		outer拦截事件之后，middle和inner会获得cancel事件。
+//Move事件第二次。为什么outer会执行onInterceptTouchEvent()？因为在第一次的Move事件中，inner请求middle拦截事件会导致middle本身以及父控件都拦截事件，即outer也会拦截事件。
+
+//public void requestDisallowInterceptTouchEvent(boolean disallowIntercept) {
+//	if (disallowIntercept == ((mGroupFlags & FLAG_DISALLOW_INTERCEPT) != 0)) {
+//		// We're already in this state, assume our ancestors are too
+//		return;
+//	}
+//	if (disallowIntercept) {
+//		mGroupFlags |= FLAG_DISALLOW_INTERCEPT;// mGroupFlags = FLAG_DISALLOW_INTERCEPT
+//	} else {
+//		mGroupFlags &= ~FLAG_DISALLOW_INTERCEPT;// mGroupFlags = 0
+//	}
+//	// Pass it up to our parent
+//	if (mParent != null) {
+//		mParent.requestDisallowInterceptTouchEvent(disallowIntercept);// 父控件拦截事件
+//	}
+//}
+
 //
 //		09-07 10:06:55.875 12904-12904/com.tech.heathcilff.androiddevelopart D/outer-move: dispatchTouchEvent-xy:457.0/229.0
 //		09-07 10:06:55.875 12904-12904/com.tech.heathcilff.androiddevelopart D/outer-move: onInterceptTouchEvent-xy:457.0/229.0
