@@ -32,6 +32,7 @@ public class ThreeTouchEventInActivity extends AppCompatActivity {
 //		09-07 10:06:55.845 12904-12904/com.tech.heathcilff.androiddevelopart D/inner-move: onTouchEvent-xy:457.0/192.0
 //		Move事件第一次。outer和middle已经被请求不要拦截所以，所以没有执行onInterceptTouchEvent()，在inner dispatchTouchEvent()会请求middle拦截事件
 //
+
 //		09-07 10:06:55.859 12904-12904/com.tech.heathcilff.androiddevelopart D/outer-move: dispatchTouchEvent-xy:457.0/208.0
 //		09-07 10:06:55.859 12904-12904/com.tech.heathcilff.androiddevelopart D/outer-move: onInterceptTouchEvent-xy:457.0/208.0
 //		09-07 10:06:55.861 12904-12904/com.tech.heathcilff.androiddevelopart D/middle-cancel: dispatchTouchEvent-xy:457.0/208.0
