@@ -1,21 +1,34 @@
 package com.tech.heathcilff.androiddevelopart;
 
 import android.app.Activity;
+import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.tech.heathcilff.androiddevelopart.socket.TCPClientActivity;
 import com.tech.heathcilff.androiddevelopart.view.sameDirectionTouch.SameDirectionTouchActivity2;
-import com.tech.heathcilff.androiddevelopart.view.threeTouchEvent.ThreeTouchEventInActivity;
 import com.tech.heathcilff.androiddevelopart.view.threeTouchEvent.ThreeTouchEventExActivity;
+import com.tech.heathcilff.androiddevelopart.view.threeTouchEvent.ThreeTouchEventInActivity;
+
+import java.util.List;
 
 public class MainActivity extends Activity {
 	private static final String TAG = "MainActivity";
-
+	private static final String CATEGORY_SAMPLE = "com.tech.heathcilff.androiddevelopart.sample.SAMPLE";
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -111,7 +124,22 @@ public class MainActivity extends Activity {
 			}
 		});
 
-		// test
+		RecyclerView recyclerView = (RecyclerView) findViewById(R.id.list_ac);
+		recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+		recyclerView.setAdapter(new ResolveInfoAdapter(this, getAllSampleActivities()));
+	}
+
+	private List<ResolveInfo> getAllSampleActivities() {
+		Intent filter = new Intent();
+		filter.setAction(Intent.ACTION_RUN);
+		filter.addCategory(CATEGORY_SAMPLE);
+		return getPackageManager().queryIntentActivities(filter, 0);
+	}
+
+	private void onRouteClicked(ResolveInfo route) {
+		ActivityInfo activity = route.activityInfo;
+		ComponentName name = new ComponentName(activity.applicationInfo.packageName, activity.name);
+		startActivity(new Intent(Intent.ACTION_VIEW).setComponent(name));
 	}
 
 	private void toSMS() {
@@ -191,4 +219,52 @@ public class MainActivity extends Activity {
 		super.onDestroy();
 		Log.d(TAG, "onDestroy");
 	}
+
+	class ResolveInfoAdapter extends RecyclerView.Adapter<ResolveInfoAdapter.ResolveInfoViewHolder> {
+
+		private final PackageManager pm;
+		private final LayoutInflater inflater;
+		private final List<ResolveInfo> samples;
+
+		private ResolveInfoAdapter(Context context, List<ResolveInfo> resolveInfos) {
+			this.samples = resolveInfos;
+			this.inflater = LayoutInflater.from(context);
+			this.pm = context.getPackageManager();
+		}
+
+		@Override
+		public ResolveInfoViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+			View view = inflater.inflate(R.layout.item_route, viewGroup, false);
+			return new ResolveInfoViewHolder(view);
+		}
+
+		@Override
+		public void onBindViewHolder(ResolveInfoViewHolder viewHolder, int i) {
+			ResolveInfo item = samples.get(i);
+			viewHolder.textView.setText(item.loadLabel(pm));
+		}
+
+		@Override
+		public int getItemCount() {
+			return samples.size();
+		}
+
+		class ResolveInfoViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+
+			public final TextView textView;
+
+			public ResolveInfoViewHolder(View view) {
+				super(view);
+				this.textView = (TextView) view.findViewById(android.R.id.text1);
+				view.setOnClickListener(this);
+			}
+
+			@Override
+			public void onClick(@NonNull View v) {
+				onRouteClicked(samples.get(getAdapterPosition()));
+			}
+		}
+	}
+
+
 }

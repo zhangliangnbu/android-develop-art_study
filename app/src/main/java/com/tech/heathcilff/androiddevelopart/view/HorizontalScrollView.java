@@ -205,7 +205,6 @@ public class HorizontalScrollView extends ViewGroup {
 		if(scroller.computeScrollOffset()) {
 			scrollTo(scroller.getCurrX(), scroller.getCurrY());
 			postInvalidate();
-
 		}
 	}
 }

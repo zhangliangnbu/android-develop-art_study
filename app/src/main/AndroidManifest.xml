@@ -23,6 +23,7 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
         <activity
             android:name=".SecondActivity"
             android:label="second singleTop"
@@ -39,6 +40,7 @@
                 <!-- <data android:mimeType="*/*" android:scheme="http"/> -->
             </intent-filter>
         </activity>
+
         <activity
             android:name=".ThirdActivity"
             android:label="third singleTask"
@@ -49,6 +51,7 @@
             android:label="fourth standard"
             android:launchMode="standard">
         </activity>
+
         <activity
             android:name=".FifthIPCActivity"
             android:process=":remote_fifth">
@@ -96,7 +99,8 @@
             android:process=":remote_tcp_server">
         </service>
 
-        <activity android:name=".socket.TCPClientActivity">
+        <activity
+            android:name=".socket.TCPClientActivity">
         </activity>
         <activity android:name=".view.ViewTestActivity">
         </activity>
@@ -110,6 +114,32 @@
         </activity>
         <activity android:name=".view.threeTouchEvent.ThreeTouchEventExActivity">
         </activity>
+
+        <activity
+            android:name=".remoteViews.NotificationDemoActivity"
+            android:label="NotificationDemo"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity">
+            </meta-data>
+            <intent-filter>
+                <action android:name="android.intent.action.RUN"/>
+                <category android:name="com.tech.heathcilff.androiddevelopart.sample.SAMPLE"/>
+            </intent-filter>
+        </activity>
+
+        <receiver android:name=".remoteViews.MyAppWidgetProvider">
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/appwidget_provider_info">
+            </meta-data>
+            <intent-filter>
+                <action android:name="com.tech.heathcilff.androiddevelopart.action.CLICK"/>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+        </receiver>
+
     </application>
 
 </manifest>
