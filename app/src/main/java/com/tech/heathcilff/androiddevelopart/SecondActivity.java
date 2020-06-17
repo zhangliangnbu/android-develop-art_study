@@ -6,9 +6,11 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.ParcelFileDescriptor;
 import android.provider.OpenableColumns;
-import android.support.v7.app.AppCompatActivity;
+
 import android.util.Log;
 import android.view.View;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.FileDescriptor;
 import java.io.FileInputStream;

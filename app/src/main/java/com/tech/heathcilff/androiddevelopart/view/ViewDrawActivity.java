@@ -1,7 +1,7 @@
 package com.tech.heathcilff.androiddevelopart.view;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.tech.heathcilff.androiddevelopart.R;
 
